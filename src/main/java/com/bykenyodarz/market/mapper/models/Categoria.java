@@ -1,0 +1,25 @@
+package com.bykenyodarz.market.mapper.models;
+
+import lombok.Data;
+
+import javax.persistence.*;
+import javax.validation.constraints.Size;
+
+@Entity
+@Table(name = "categorias")
+@Data
+public class Categoria {
+
+    @Id
+    @Column(name = "id_categoria")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer idCategoria;
+
+    @Column(name = "descripcion")
+    @Size(max = 40)
+    private String descripcion;
+
+    @Column(name = "estado")
+    private Boolean estado;
+
+}
