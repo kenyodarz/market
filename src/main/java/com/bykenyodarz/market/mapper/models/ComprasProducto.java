@@ -2,10 +2,7 @@ package com.bykenyodarz.market.mapper.models;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @Entity
@@ -23,5 +20,14 @@ public class ComprasProducto {
 
     @Column(name = "estado")
     private Boolean estado;
+
+    @ManyToOne
+    @JoinColumn(name = "id_compra", insertable = false, updatable = false)
+    private Compra compra;
+
+    @ManyToOne
+    @JoinColumn(name = "id_producto", insertable = false, updatable = false)
+    private Producto producto;
+
 
 }

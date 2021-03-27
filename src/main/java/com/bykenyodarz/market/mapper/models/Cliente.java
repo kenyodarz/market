@@ -2,12 +2,10 @@ package com.bykenyodarz.market.mapper.models;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Data
 @Entity
@@ -37,5 +35,8 @@ public class Cliente {
     @Size(max = 70)
     @Email
     private String  correoElectronico;
+
+    @OneToMany(mappedBy = "cliente")
+    private List<Compra> compras;
 
 }
