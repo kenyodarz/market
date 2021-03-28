@@ -1,4 +1,4 @@
-package com.bykenyodarz.market.mapper.models;
+package com.bykenyodarz.market.data.models;
 
 import lombok.Data;
 
