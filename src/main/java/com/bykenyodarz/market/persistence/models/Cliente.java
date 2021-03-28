@@ -25,7 +25,7 @@ public class Cliente {
     private String apellido;
 
     @Column(name = "celular")
-    private Integer celular;
+    private Long celular;
 
     @Column(name = "direccion")
     @Size(max = 80)
