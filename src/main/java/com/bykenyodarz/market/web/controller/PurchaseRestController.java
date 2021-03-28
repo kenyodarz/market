@@ -3,6 +3,7 @@ package com.bykenyodarz.market.web.controller;
 import com.bykenyodarz.market.domain.services.apis.PurchaseServiceAPI;
 import com.bykenyodarz.market.domain.viewmodel.Purchase;
 import com.bykenyodarz.market.shared.generated.GenericRestController;
+import io.swagger.annotations.Api;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,6 +12,7 @@ import java.util.List;
 @RestController
 @CrossOrigin(origins = {"*"})
 @RequestMapping("/purchases")
+@Api(tags = "Purchases")
 public class PurchaseRestController extends GenericRestController<Purchase, Integer> {
 
     private final PurchaseServiceAPI serviceAPI;
