@@ -1,10 +1,10 @@
 # Database
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/MARKET
-    username: postgres
-    password: cdm
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
     driver-class-name: org.postgresql.Driver
 
 server:
-  port: 80
+  port: ${PORT}
