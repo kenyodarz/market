@@ -3,10 +3,7 @@ package com.bykenyodarz.market.web.controller;
 import com.bykenyodarz.market.domain.services.apis.ProductServiceAPI;
 import com.bykenyodarz.market.domain.viewmodel.Product;
 import com.bykenyodarz.market.shared.generated.GenericRestController;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,7 +25,8 @@ public class ProductRestController extends GenericRestController<Product, Intege
 
     @GetMapping("/category/{id}")
     @ApiOperation(value = "Obtiene todos los productos por Categoría",
-            notes = "Servicio para listar todos los productos por categoría")
+            notes = "Servicio para listar todos los productos por categoría",
+            authorizations = {@Authorization(value = "jwtToken")})
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Entidad listada correctamente"),
             @ApiResponse(code = 401, message = "Usuario No Autorizado"),

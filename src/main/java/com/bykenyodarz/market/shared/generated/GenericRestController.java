@@ -3,6 +3,7 @@ package com.bykenyodarz.market.shared.generated;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.Authorization;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -31,7 +32,8 @@ public abstract class GenericRestController<T, ID extends Serializable> {
     }
 
     @GetMapping("/all")
-    @ApiOperation(value = "Listar Entidades", notes = "servicio para listar todas las Entidades")
+    @ApiOperation(value = "Listar Entidades", notes = "servicio para listar todas las Entidades",
+            authorizations = {@Authorization(value = "jwtToken")})
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Entidades Listadas Correctamente"),
             @ApiResponse(code = 401, message = "Usuario No Autorizado"),
@@ -42,7 +44,8 @@ public abstract class GenericRestController<T, ID extends Serializable> {
     }
 
     @GetMapping("/{id}")
-    @ApiOperation(value = "Obtener una Entidad", notes = "servicio para obtener una Entidad")
+    @ApiOperation(value = "Obtener una Entidad", notes = "servicio para obtener una Entidad",
+            authorizations = {@Authorization(value = "jwtToken")})
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Entidad encontrada correctamente"),
             @ApiResponse(code = 401, message = "Usuario No Autorizado"),
